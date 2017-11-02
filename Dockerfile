@@ -1,10 +1,10 @@
-FROM dockercloud/haproxy:latest
+FROM haproxytech/haproxy-ubuntu
 MAINTAINER Gary Leong <gwleong@gmail.com>
 
-#RUN apk update && apk --no-cache add wget gcc gmake -y
+RUN apt-get update -y && apt-get install wget gcc make -y
 
 ADD tool /var/tmp/tool
 
-#RUN cd /var/tmp/tool && \
-#    make && \
-#    gcc -s -O3 -o iprange iprange.c
+RUN cd /var/tmp/tool && \
+    make && \
+    gcc -s -O3 -o iprange iprange.c
