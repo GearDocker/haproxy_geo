@@ -7,4 +7,5 @@ RUN apt-get update -y && apt-get install wget gcc make -y && \
     cd /var/tmp/tool && \
     make && \
     gcc -s -O3 -o iprange iprange.c && \
-    apt-get purge wget gcc make -y
+    apt-get purge wget gcc make -y && \
+    mv iprange /bin/
